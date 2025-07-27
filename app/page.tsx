@@ -50,17 +50,19 @@ export default function Portfolio() {
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
               <Button className="relative overflow-hidden group bg-gradient-to-r from-blue-500 to-purple-500 border-0">
-                <span className="relative z-10 flex items-center">
-                  View Projects{" "}
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </span>
-                <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                <Link href={"#projects"}>
+                  <span className="relative z-10 flex items-center">
+                    View Projects{" "}
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                </Link>
               </Button>
               <Button
                 variant="outline"
                 className="border-zinc-700 text-purple-500 hover:text-blue-700 hover:border-zinc-500 bg-transparent"
               >
-                Contact Me
+                <Link href="#contact">Contact Me</Link>
               </Button>
             </div>
             <div className="flex gap-4 pt-4">
@@ -178,7 +180,7 @@ export default function Portfolio() {
                   </div>
                   <div className="space-y-1">
                     <div className="text-sm text-zinc-500">Email</div>
-                    <div className="font-medium">
+                    <div className="font-medium break-all">
                       chlmatias.guevara@gmail.com
                     </div>
                   </div>
@@ -195,8 +197,14 @@ export default function Portfolio() {
                 </div>
 
                 <div className="mt-8">
-                  <Button className="bg-zinc-800 hover:bg-zinc-700 text-white">
-                    Download Resume
+                  <Button className="bg-gradient-to-r from-blue-500 to-purple-500 hover:bg-zinc-700 animate-pulse text-white shadow-sm shadow-pink-500/50">
+                    <Link
+                      href={
+                        "https://drive.google.com/uc?export=download&id=1JUKePZwDRqaIPyPac2Zcdpim8XR1jHiV"
+                      }
+                    >
+                      Download Resume
+                    </Link>
                   </Button>
                 </div>
               </GlassmorphicCard>
@@ -262,36 +270,37 @@ export default function Portfolio() {
               description="This application emulates the microservices system for a Uber‑style ride‑sharing app"
               tags={[
                 "Golang",
+                "Microservices",
+                "gRPC",
                 "Docker",
                 "Kubernetes",
                 "RabbitMQ",
                 "PostgreSQL",
-                "Redis",
+                "Socket",
               ]}
-              image="/placeholder.svg?height=400&width=600"
-              demoUrl="https://example.com"
-              repoUrl="https://github.com/Big-Sh4rk/portfolio"
+              image="/project/ride-sharing.webp?height=400&width=600"
+              repoUrl="https://github.com"
             />
             <ProjectCard
               title="Social App"
               description="A RESTful API for a social media platform with user authentication and post management. Using Clean Architecture."
               tags={["Golang", "Postgre", "Docker"]}
-              image="/placeholder.svg?height=400&width=600"
-              demoUrl="https://example.com"
+              image="/project/social-app.webp?height=400&width=600"
               repoUrl="https://github.com"
             />
             <ProjectCard
-              title="Login Auhentication and QR Authenticator"
-              description="Frontend application for login authentication and QR code generation using Next.js and Tailwind CSS."
+              title="Microfrontends Architecture"
+              description="Frontend application using microfrontends architecture with Module Federation, allowing independent deployment and scaling of features."
               tags={[
-                "Next.js",
                 "React",
+                "Microfrontends",
+                "Module Federation",
+                "NX",
+                "Webpack",
                 "Tailwind CSS",
-                "Firebase",
-                "Cloudflare",
+                "TypeScript",
               ]}
-              image="/placeholder.svg?height=400&width=600"
-              demoUrl="https://example.com"
+              image="/project/microfronts.webp?height=400&width=600"
               repoUrl="https://github.com"
             />
             <ProjectCard
@@ -305,9 +314,8 @@ export default function Portfolio() {
                 "Re Send",
                 "Cloudflare",
               ]}
-              image="/placeholder.svg?height=400&width=600"
-              demoUrl="https://example.com"
-              repoUrl="https://github.com"
+              image="/project/influencer-portfolio.webp??height=400&width=600"
+              demoUrl="https://0124c33f.lazaplays.pages.dev/"
             />
             <ProjectCard
               title="Currency and Taxes Dashboard"
@@ -320,23 +328,7 @@ export default function Portfolio() {
                 "Firebase",
                 "Cloudflare",
               ]}
-              image="/placeholder.svg?height=400&width=600"
-              demoUrl="https://example.com"
-              repoUrl="https://github.com"
-            />
-            <ProjectCard
-              title="Portfolio Website"
-              description="This portfolio website built with Next.js and Tailwind CSS."
-              tags={[
-                "Next.js",
-                "Tailwind CSS",
-                "Framer Motion",
-                "TypeScript",
-                "Re Send",
-                "Cloudflare",
-              ]}
-              image="/placeholder.svg?height=400&width=600"
-              demoUrl="https://example.com"
+              image="/project/cur-and-tax.webp?height=400&width=600"
               repoUrl="https://github.com"
             />
             <ProjectCard
@@ -350,8 +342,7 @@ export default function Portfolio() {
                 "Docker",
                 "JWT",
               ]}
-              image="/placeholder.svg?height=400&width=600"
-              demoUrl="https://example.com"
+              image="/project/veterinary.webp?height=400&width=600"
               repoUrl="https://github.com"
             />
             <ProjectCard
@@ -368,13 +359,12 @@ export default function Portfolio() {
                 "Auth0",
                 "Firebase",
               ]}
-              image="/placeholder.svg?height=400&width=600"
-              demoUrl="https://example.com"
+              image="/project/chat-app.webp?height=400&width=600"
               repoUrl="https://github.com"
             />
             <ProjectCard
               title="Grit Solutions"
-              description="My own startup project. We have some projects powered by AI as a Service and other products that are Software as a Service. In addition to consulting, we also develop software for other companies.."
+              description="My own startup project. We have some projects powered by AI as a Service and other products that are Software as a Service. In addition to consulting, we also develop software for other companies."
               tags={[
                 "Next.js",
                 "Tailwind CSS",
@@ -383,9 +373,23 @@ export default function Portfolio() {
                 "Re Send",
                 "Cloudflare",
               ]}
-              image="/placeholder.svg?height=400&width=600"
-              demoUrl="https://example.com"
+              image="/project/grit-solutions.webp?height=400&width=600"
               repoUrl="https://github.com"
+            />
+            <ProjectCard
+              title="Portfolio Website"
+              description="This portfolio website built with Next.js and Tailwind CSS."
+              tags={[
+                "Next.js",
+                "Tailwind CSS",
+                "Framer Motion",
+                "TypeScript",
+                "Re Send",
+                "Cloudflare",
+              ]}
+              image="/project/portfolio-web.webp?height=400&width=600"
+              demoUrl="https://matias-guevara.pages.dev/"
+              repoUrl="https://github.com/Big-Sh4rk/portfolio"
             />
           </div>
         </div>

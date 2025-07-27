@@ -77,7 +77,7 @@ export function FloatingNav() {
           ) : (
             <div className="relative flex items-center gap-1">
               <Link href="/" className="font-bold text-lg mr-4">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-600">
                   Matias
                 </span>
                 <span className="text-white">HG</span>
@@ -96,7 +96,13 @@ export function FloatingNav() {
                 size="sm"
                 className="ml-2 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-blue-500 hover:to-purple-500 border-0"
               >
-                Resume
+                <Link
+                  href={
+                    "https://drive.google.com/uc?export=download&id=1JUKePZwDRqaIPyPac2Zcdpim8XR1jHiV"
+                  }
+                >
+                  Resume
+                </Link>
               </Button>
             </div>
           )}
