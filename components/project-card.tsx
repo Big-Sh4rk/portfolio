@@ -13,8 +13,8 @@ interface ProjectCardProps {
   description: string;
   tags: string[];
   image: string;
-  demoUrl: string;
-  repoUrl: string;
+  demoUrl?: string; // Ahora es opcional
+  repoUrl?: string; // Ahora también es opcional
 }
 
 export function ProjectCard({
@@ -33,7 +33,7 @@ export function ProjectCard({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      className="group"
+      className="group h-full"
     >
       <div
         className="relative h-full overflow-hidden rounded-xl bg-zinc-800/50 backdrop-blur-sm border border-zinc-700/50 transition-all duration-300 group-hover:border-purple-500/50"
@@ -43,7 +43,7 @@ export function ProjectCard({
         <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-xl blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
 
         <div className="relative h-full flex flex-col">
-          <div className="relative overflow-hidden h-48">
+          <div className="relative overflow-hidden h-48 flex-shrink-0">
             <div className="absolute inset-0 bg-gradient-to-b from-purple-500/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
             <img
               src={image || "/placeholder.svg"}
@@ -54,10 +54,9 @@ export function ProjectCard({
             />
           </div>
 
-          <div className="p-6 flex-grow">
+          <div className="p-6 flex flex-col flex-grow">
             <h3 className="text-xl font-bold mb-2">{title}</h3>
             <p className="text-zinc-400 mb-4">{description}</p>
-
             <div className="flex flex-wrap gap-2 mb-6">
               {tags.map((tag, index) => (
                 <Badge
@@ -69,29 +68,49 @@ export function ProjectCard({
                 </Badge>
               ))}
             </div>
-
-            <div className="flex justify-between mt-auto pt-4 border-t border-zinc-700/50">
-              <Button
-                variant="ghost"
-                size="sm"
-                className="text-zinc-400 hover:text-white hover:bg-zinc-700/50"
-                asChild
-              >
-                <Link href={repoUrl} target="_blank" rel="noopener noreferrer">
-                  <Github className="mr-2 h-4 w-4" />
-                  Code
-                </Link>
-              </Button>
-              <Button
-                size="sm"
-                className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-blue-500 hover:to-purple-500 border-0"
-                asChild
-              >
-                <Link href={demoUrl} target="_blank" rel="noopener noreferrer">
-                  Live Demo
-                  <ArrowUpRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
+            {/* Spacer que empuja los botones hacia abajo */}
+            <div className="flex-grow"></div>
+            {/* Botones con posiciones fijas */}
+            <div className="flex justify-between pt-4 border-t border-zinc-700/50">
+              {/* Botón Code - siempre a la izquierda */}
+              <div className="flex">
+                {repoUrl && (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="text-zinc-400 hover:text-white hover:bg-zinc-700/50"
+                    asChild
+                  >
+                    <Link
+                      href={repoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Github className="mr-2 h-4 w-4" />
+                      Code
+                    </Link>
+                  </Button>
+                )}
+              </div>
+              {/* Botón Live Demo - siempre a la derecha */}
+              <div className="flex">
+                {demoUrl && (
+                  <Button
+                    size="sm"
+                    className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-blue-500 hover:to-purple-500 border-0"
+                    asChild
+                  >
+                    <Link
+                      href={demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Live Demo
+                      <ArrowUpRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                )}
+              </div>
             </div>
           </div>
 
