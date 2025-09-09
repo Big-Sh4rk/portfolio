@@ -229,13 +229,13 @@ export default function Portfolio() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-16">
             {/* Fila 1 */}
             <SkillBadge name="JavaScript" level={90} />
-            <SkillBadge name="TypeScript" level={85} />
+            <SkillBadge name="TypeScript" level={90} />
             <SkillBadge name="Go" level={95} />
-            <SkillBadge name="HTML/CSS" level={95} />
-            {/* Fila 2 */}
             <SkillBadge name="React" level={95} />
-            <SkillBadge name="Next.js" level={90} />
-            <SkillBadge name="Node.js" level={80} />
+            {/* Fila 2 */}
+            <SkillBadge name="Node.js" level={95} />
+            <SkillBadge name="Express" level={90} />
+            <SkillBadge name="Next.js" level={80} />
             <SkillBadge name="Tailwind CSS" level={90} />
             {/* Fila 3 */}
             <SkillBadge name="MongoDB" level={75} />
